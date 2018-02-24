@@ -1,4 +1,5 @@
-package com.course.spark.dataframe
+package com.spark.dataframe
+
 import org.apache.spark.sql.functions._
 object DateAndTime {
   // Dates and TimeStamps

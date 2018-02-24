@@ -1,4 +1,4 @@
-package com.course.spark.dataframe
+package com.spark.dataframe
 
 import org.apache.spark.sql.functions._
 // DATAFRAME PROJECT

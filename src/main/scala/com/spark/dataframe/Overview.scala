@@ -1,4 +1,5 @@
-package com.course.spark.dataframe
+package com.spark.dataframe
+
 import org.apache.spark.sql.SparkSession
 
 // Most Important Link:

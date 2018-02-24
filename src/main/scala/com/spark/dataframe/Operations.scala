@@ -1,4 +1,6 @@
-package com.course.spark.dataframe
+package com.spark.dataframe
+
+import com.spark.dataframe.Overview.spark
 import org.apache.spark.sql.functions._
 
 // DataFrame Operations
@@ -10,7 +12,7 @@ object Operations extends App {
 
   // Create a DataFrame from Spark Session read csv
   // Technically known as class Dataset
-  val df = spark.read.option("header", "true").option("inferSchema", "true").csv("CitiGroup2006_2008")
+  val df = spark.read.option("header", "true").option("inferSchema", "true").csv("citiData_2006-08")
 
   // Show Schema
   df.printSchema()

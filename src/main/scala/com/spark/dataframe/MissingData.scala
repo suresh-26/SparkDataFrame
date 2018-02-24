@@ -1,4 +1,4 @@
-package com.course.spark.dataframe
+package com.spark.dataframe
 
 object MissingData {
   // Start a simple Spark Session
