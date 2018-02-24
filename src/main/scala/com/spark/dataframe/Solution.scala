@@ -59,7 +59,7 @@ object Solution {
   val yearmaxs = yeardf.select($"Year", $"High").groupBy("Year").max()
 
   //Todo :: commented below code as it was referring to undefined val yearavgs
-  //yearavgs.select($"Year", $"max(High)").show()
+  //yearmaxs.select($"Year", $"max(High)").show()
 
   // What is the average Close for each Calender Month?
   val monthdf = df.withColumn("Month", month(df("Date")))

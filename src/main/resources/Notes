@@ -1,0 +1,2 @@
+describe().show() on dataframe can be used to analysis mean, stddeb, min, max, count of of all numerical columns in the given dataframe
+Function corr gives the result of correlation between two columns
