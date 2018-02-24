@@ -51,6 +51,7 @@ object Overview extends App {
   // Renaming Columns (and selecting some more)
   df2.select(df2("HighPlusLow").as("HPL"), df2("Close")).show()
 
+
   
   // That is it for now! We'll see these basic functions
   // a lot more as we go on.
