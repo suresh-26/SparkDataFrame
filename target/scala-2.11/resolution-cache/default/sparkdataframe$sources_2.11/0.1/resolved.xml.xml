@@ -4,7 +4,7 @@
 		module="sparkdataframe$sources_2.11"
 		revision="0.1"
 		status="integration"
-		publication="20180224170102"
+		publication="20180224214235"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
