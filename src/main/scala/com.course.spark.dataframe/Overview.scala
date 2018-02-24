@@ -33,24 +33,24 @@ object Overview extends App {
   println(df.describe())
 
   // Select columns .transform().action()
-//  println(df.select("Volume").show())
-//
-//  // Multiple Columns
-//  //TODO:: verify if it is ok to remove $ in below syntax, as before it was df.select($"Date", $"Close").show(2)
-//  df.select("Date", "Close").show(2)
-//
-//  // Creating New Columns
-//  val df2 = df.withColumn("HighPlusLow", df("High") - df("Low"))
-//  // Show result
-//  df2.columns
-//  df2.printSchema()
-//
-//  // Recheck Head
-//  df2.head(5)
-//
-//  // Renaming Columns (and selecting some more)
-//  df2.select(df2("HighPlusLow").as("HPL"), df2("Close")).show()
-//
-//  // That is it for now! We'll see these basic functions
-//  // a lot more as we go on.
+  println(df.select("Volume").show())
+
+  // Multiple Columns
+  //TODO:: verify if it is ok to remove $ in below syntax, as before it was df.select($"Date", $"Close").show(2)
+  df.select("Date", "Close").show(2)
+
+  // Creating New Columns
+  val df2 = df.withColumn("HighPlusLow", df("High") - df("Low"))
+  // Show result
+  df2.columns
+  df2.printSchema()
+
+  // Recheck Head
+  df2.head(5)
+
+  // Renaming Columns (and selecting some more)
+  df2.select(df2("HighPlusLow").as("HPL"), df2("Close")).show()
+
+  // That is it for now! We'll see these basic functions
+  // a lot more as we go on.
 }
