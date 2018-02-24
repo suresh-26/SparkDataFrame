@@ -1,19 +1,16 @@
 package com.course.spark.dataframe
-
-// Getting Started with DataFrames!
+import org.apache.spark.sql.SparkSession
 
 // Most Important Link:
 // http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Dataset
-
-
-// Start a simple Spark Session
-import org.apache.spark.sql.SparkSession
 object Overview extends App {
-  val spark = SparkSession.builder().getOrCreate()
+
+  // Start a simple Spark Session
+  val spark = SparkSession.builder().appName("Spark ml").config("spark.master", "local").getOrCreate()
 
   // Create a DataFrame from Spark Session read csv
   // Technically known as class Dataset
-  val df = spark.read.option("header", "true").option("inferSchema", "true").csv("CitiGroup2006_2008")
+  val df = spark.read.option("header", "true").option("inferSchema", "true").csv("citiData_2006-08")
 
   // Get first 5 rows
   df.head(5) // returns an Array
@@ -23,20 +20,19 @@ object Overview extends App {
   }
 
   // Get column names
-  println(df.columns)
+  val columns = df.columns
 
   // Find out DataTypes
   // Print Schema
   df.printSchema()
 
   // Describe DataFrame Numerical Columns
-  println(df.describe())
+  df.describe().show()
 
   // Select columns .transform().action()
-  println(df.select("Volume").show())
+  df.select("Volume").show()
 
   // Multiple Columns
-  //TODO:: verify if it is ok to remove $ in below syntax, as before it was df.select($"Date", $"Close").show(2)
   df.select("Date", "Close").show(2)
 
   // Creating New Columns
@@ -46,13 +42,11 @@ object Overview extends App {
   df2.printSchema()
 
   // Recheck Head
-  df2.head(5)
+  for (line <- df2.head(5)) {
+    println(line)
+  }
 
   // Renaming Columns (and selecting some more)
   df2.select(df2("HighPlusLow").as("HPL"), df2("Close")).show()
 
-
-  
-  // That is it for now! We'll see these basic functions
-  // a lot more as we go on.
 }
