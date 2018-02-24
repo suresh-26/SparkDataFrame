@@ -7,7 +7,7 @@ object Aggregation {
 
   // Start a simple Spark Session
   import org.apache.spark.sql.SparkSession
-  val spark = SparkSession.builder().getOrCreate()
+  val spark = SparkSession.builder().appName("Spark ml").config("spark.master", "local").getOrCreate()
 
   // Create a DataFrame from Spark Session read csv
   // Technically known as class Dataset

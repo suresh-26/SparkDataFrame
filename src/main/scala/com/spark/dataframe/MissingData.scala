@@ -3,7 +3,7 @@ package com.spark.dataframe
 object MissingData {
   // Start a simple Spark Session
   import org.apache.spark.sql.SparkSession
-  val spark = SparkSession.builder().getOrCreate()
+  val spark = SparkSession.builder().appName("Spark ml").config("spark.master", "local").getOrCreate()
 
   // Grab small dataset with some missing data
   val df = spark.read.option("header","true").option("inferSchema","true").csv("ContainsNull.csv")
@@ -26,8 +26,7 @@ object MissingData {
   // Drop any rows with any amount of na values
   df.na.drop().show()
 
-  // Drop any rows that have less than a minimum Number
-  // of NON-null values ( < Int)
+  // drop any row having greater than or equal to 2 null columns
   df.na.drop(2).show()
 
   // Interesting behavior!

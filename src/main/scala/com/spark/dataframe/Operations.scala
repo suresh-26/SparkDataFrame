@@ -8,7 +8,7 @@ import org.apache.spark.sql.functions._
 // Start a simple Spark Session
 import org.apache.spark.sql.SparkSession
 object Operations extends App {
-  val spark = SparkSession.builder().getOrCreate()
+  val spark = SparkSession.builder().appName("Spark ml").config("spark.master", "local").getOrCreate()
 
   // Create a DataFrame from Spark Session read csv
   // Technically known as class Dataset
